@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="2yX-kO-5pu">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="27o-Pa-l0T">
+            <objects>
+                <windowController id="2yX-kO-5pu" sceneMemberID="viewController">
+                    <window key="window" title="Photo Manager" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="eM0-BI-xPh">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="1280" height="720"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <view key="contentView" id="eTQ-eH-4xm">
+                            <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="2yX-kO-5pu" id="YOg-vb-i5Q"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="RIg-5X-hcs" kind="relationship" relationship="window.shadowedContentViewController" id="sHY-GN-bQY"/>
+                    </connections>
+                </windowController>
+                <customObject id="fsR-vL-BjV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-168" y="189"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JoI-ex-LPq">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="RIg-5X-hcs" customClass="ViewController" customModule="Photo_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="BQc-Dg-w6O">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="650"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lp8-hg-0IP">
+                                <rect key="frame" x="40" y="584" width="218" height="26"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zD7-7S-icy">
+                                        <rect key="frame" x="-2" y="0.0" width="132" height="26"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="เพิ่มไฟล์จาก Folder" id="wih-lK-0Q6">
+                                            <font key="font" size="16" name="SukhumvitSet-Bold"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mfv-8b-EjP">
+                                        <rect key="frame" x="133" y="-4" width="74" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Open" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XPl-Ht-X45">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system" size="16"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="openFile:" target="RIg-5X-hcs" id="XDq-Ua-4sI"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Zd-e3-5V0">
+                                        <rect key="frame" x="210" y="0.0" width="10" height="26"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="-" id="9Ty-YG-fNG">
+                                            <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc4-Ok-Joi">
+                                <rect key="frame" x="40" y="264" width="720" height="300"/>
+                                <clipView key="contentView" drawsBackground="NO" id="7hA-yR-I7f">
+                                    <rect key="frame" x="0.0" y="0.0" width="720" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView wantsLayer="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="6Vu-gW-l5K">
+                                            <rect key="frame" x="0.0" y="0.0" width="720" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="720" height="300"/>
+                                            <size key="maxSize" width="950" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="LwU-3m-Fpy"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="abp-i9-WZG">
+                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="K5Q-Ne-2gD">
+                                    <rect key="frame" x="704" y="0.0" width="16" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Txh-qX-UEY">
+                                <rect key="frame" x="40" y="188" width="96" height="56"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3VM-z5-t4f">
+                                        <rect key="frame" x="-2" y="30" width="91" height="26"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="เพิ่มคำนำหน้า" id="1Fp-59-RBT">
+                                            <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nBh-uQ-Qjo">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="pSV-rq-5l7">
+                                            <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lod-xD-5m2">
+                                <rect key="frame" x="664" y="188" width="96" height="56"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qZb-h8-dTx">
+                                        <rect key="frame" x="-2" y="30" width="58" height="26"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="ชนิดไฟล์" id="dhX-tM-bJ8">
+                                            <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qXR-xv-mTN">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="0ZP-Xl-Qx5">
+                                            <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FUO-oJ-CqG">
+                                <rect key="frame" x="40" y="40" width="210" height="100"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-DE-Svf">
+                                        <rect key="frame" x="0.0" y="74" width="195" height="26"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yoM-qA-2S0">
+                                                <rect key="frame" x="-2" y="0.0" width="99" height="26"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Folder ต้นทาง" id="E0h-lT-eMj">
+                                                    <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W4o-0G-kfl">
+                                                <rect key="frame" x="98" y="-4" width="88" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZEK-gS-4tp">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system" size="16"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="browsOrigin:" target="RIg-5X-hcs" id="X83-nC-9Jl"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8D3-WA-sTu">
+                                                <rect key="frame" x="187" y="0.0" width="10" height="26"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="-" id="lE6-hm-Q04">
+                                                    <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09K-eo-Qcx">
+                                        <rect key="frame" x="0.0" y="34" width="210" height="26"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vQH-Zp-0q2">
+                                                <rect key="frame" x="-2" y="0.0" width="114" height="26"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Folder ปลายทาง" id="yfj-dM-VEQ">
+                                                    <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wRl-qL-14x">
+                                                <rect key="frame" x="113" y="-4" width="88" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZyM-1M-HQJ">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system" size="16"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="browseDestination:" target="RIg-5X-hcs" id="p7w-M5-x5y"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="65R-7B-DQJ">
+                                                <rect key="frame" x="202" y="0.0" width="10" height="26"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="-" id="298-6A-IAy">
+                                                    <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hV8-1D-Nzb">
+                                        <rect key="frame" x="-7" y="-7" width="83" height="32"/>
+                                        <buttonCell key="cell" type="push" title="คัดลอก" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2DC-Sx-254">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="16" name="SukhumvitSet-Medium"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.1450980392" green="0.28627450980000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="copyFile:" target="RIg-5X-hcs" id="GY3-3q-Ow9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sks-US-Jm2">
+                                <rect key="frame" x="695" y="577" width="72" height="32"/>
+                                <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4r2-Fn-jun">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="16"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clearSelectFile:" target="RIg-5X-hcs" id="yuZ-D6-bFN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FUO-oJ-CqG" secondAttribute="bottom" constant="40" id="1vT-3X-QcN"/>
+                            <constraint firstItem="Txh-qX-UEY" firstAttribute="leading" secondItem="BQc-Dg-w6O" secondAttribute="leading" constant="40" id="Avf-5l-CrU"/>
+                            <constraint firstItem="Pc4-Ok-Joi" firstAttribute="top" secondItem="Sks-US-Jm2" secondAttribute="bottom" constant="20" id="Cje-2M-zlY"/>
+                            <constraint firstAttribute="trailing" secondItem="Sks-US-Jm2" secondAttribute="trailing" constant="40" id="EAR-uA-H6o"/>
+                            <constraint firstItem="Lod-xD-5m2" firstAttribute="top" secondItem="Pc4-Ok-Joi" secondAttribute="bottom" constant="20" id="V4y-lf-K0Z"/>
+                            <constraint firstAttribute="trailing" secondItem="Lod-xD-5m2" secondAttribute="trailing" constant="40" id="Xno-mL-nqv"/>
+                            <constraint firstItem="FUO-oJ-CqG" firstAttribute="leading" secondItem="BQc-Dg-w6O" secondAttribute="leading" constant="40" id="c5j-qO-rKQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Pc4-Ok-Joi" secondAttribute="trailing" constant="40" id="emT-PA-vTE"/>
+                            <constraint firstItem="Txh-qX-UEY" firstAttribute="top" secondItem="Pc4-Ok-Joi" secondAttribute="bottom" constant="20" id="xIr-0f-yYP"/>
+                            <constraint firstItem="lp8-hg-0IP" firstAttribute="leading" secondItem="BQc-Dg-w6O" secondAttribute="leading" constant="40" id="xlv-rM-y4R"/>
+                            <constraint firstItem="lp8-hg-0IP" firstAttribute="top" secondItem="BQc-Dg-w6O" secondAttribute="top" constant="40" id="yMT-cq-xdI"/>
+                            <constraint firstItem="Pc4-Ok-Joi" firstAttribute="top" secondItem="lp8-hg-0IP" secondAttribute="bottom" constant="20" id="zac-jT-Wxm"/>
+                            <constraint firstItem="Pc4-Ok-Joi" firstAttribute="leading" secondItem="BQc-Dg-w6O" secondAttribute="leading" constant="40" id="zfo-ru-Pb3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="destinationFoloderPath" destination="65R-7B-DQJ" id="3dz-WX-tYB"/>
+                        <outlet property="fileTypeTxt" destination="qXR-xv-mTN" id="fsp-E3-AFn"/>
+                        <outlet property="foloderPathLabel" destination="7Zd-e3-5V0" id="Idc-H7-gGr"/>
+                        <outlet property="listFileTxt" destination="6Vu-gW-l5K" id="MKu-k2-d2y"/>
+                        <outlet property="originFolorPathLabel" destination="8D3-WA-sTu" id="RDW-pV-qo8"/>
+                        <outlet property="prefixTxt" destination="nBh-uQ-Qjo" id="Paq-Wa-sAt"/>
+                    </connections>
+                </viewController>
+                <customObject id="o1r-GT-HUa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="179"/>
+        </scene>
+    </scenes>
+</document>
